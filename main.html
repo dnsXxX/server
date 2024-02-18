@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Project -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyByP8jMK_28-22sYoKsv4j-uhX4mlmJ-MQ",
+      authDomain: "proje-2ef29.firebaseapp.com",
+      databaseURL: "https://proje-2ef29-default-rtdb.firebaseio.com",
+      projectId: "proje-2ef29",
+      storageBucket: "proje-2ef29.appspot.com",
+      messagingSenderId: "91861776315",
+      appId: "1:91861776315:web:dbff9328755ef06f6ff69e",
+      measurementId: "G-XPHTTG1F5Z"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+
+    import { getDatabase, ref, set, get, onValue, push} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+
+    const db = getDatabase();
+    
+    $.getJSON('https://ipapi.co/json/', function(data) {
+      f(JSON.stringify(data, null, 2));
+    })
+    
+    window.f = (x) => {
+      push(ref(db, 'users'), x);
+      
+      var y = prompt('who are you?')
+      push(ref(db, 'users'), y);
+      
+      alert(y+'??')
+    }
+  </script>
+
+</body>
+
+</html>
