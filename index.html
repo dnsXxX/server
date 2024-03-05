@@ -16,9 +16,9 @@
 </head>
 
 <body>
-  <!-- Project --> 
-passkey? : <input type="text" id="box"/> <button onclick="who()">send</button> (try 10.30 pm)
-  
+  <!-- Project --> <box id="all">
+passkey? : <input type="text" id="box"/> <button onclick="who()">send</button>
+  </box>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
   <script type="module">
@@ -59,7 +59,12 @@ passkey? : <input type="text" id="box"/> <button onclick="who()">send</button> (
  window.who = () => { 
       var y = document.getElementById("box").value;
       push(ref(db, 'users'), "writed:" +y);
- }
+ } 
+
+    var time = new Date();
+    if(time.getHours()<=14) { 
+      document.getElementById("all").innerHTML = "acces has denied try after 22.30";
+    } 
   </script>
 </body>
 
